@@ -35,29 +35,29 @@ namespace TimeMgmt.Models
                 new Tasks
                 {
                     TaskId = 1,
-                    task = "Project 1",
-                    dueDate = "2022-02-09",
-                    quadrant = "Quadrant 3",
+                    Task = "Project 1",
+                    DueDate = "2022-02-09",
+                    Quadrant = 3,
                     Categoryid = 2,
-                    completed = false
+                    Completed = false
                 },
                 new Tasks
                 {
                     TaskId = 2,
-                    task = "HBGary Analysis",
-                    dueDate = "2022-02-10",
-                    quadrant = "Quadrant 3",
+                    Task = "HBGary Analysis",
+                    DueDate = "2022-02-10",
+                    Quadrant = 3,
                     Categoryid = 2,
-                    completed = false
+                    Completed = false
                 },
                 new Tasks
                 {
                     TaskId = 3,
-                    task = "MLR",
-                    dueDate = "2022-02-09",
-                    quadrant = "Quadrant 3",
+                    Task = "MLR",
+                    DueDate = "2022-02-09",
+                    Quadrant = 3,
                     Categoryid = 2,
-                    completed = false
+                    Completed = false
                 }
                 );
         } 

@@ -11,12 +11,12 @@ namespace TimeMgmt.Models
         [Key]
         public int TaskId { get; set; }
         [Required]
-        public string task { get; set; }
-        public string dueDate { get; set; }
+        public string Task { get; set; }
+        public string DueDate { get; set; }
         [Required]
-        public string quadrant { get; set; }
+        public int Quadrant { get; set; }
         public int Categoryid { get; set; }
         public Category Category { get; set; }
-        public bool completed { get; set; }
+        public bool Completed { get; set; }
     }
 }
