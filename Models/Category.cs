@@ -10,8 +10,8 @@ namespace TimeMgmt.Models
     {
         [Key]
         [Required]
-        public int categoryid { get; set; }
-        public string categoryname { get; set; }
+        public int CategoryID { get; set; }
+        public string CategoryName { get; set; }
 
         public static implicit operator Category(int v)
         {

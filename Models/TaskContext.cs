@@ -22,10 +22,10 @@ namespace TimeMgmt.Models
         {
 
             mb.Entity<Category>().HasData(
-                    new Category { categoryid = 1, categoryname = "Home" },
-                    new Category { categoryid = 2, categoryname = "School" },
-                    new Category { categoryid = 3, categoryname = "Work" },
-                    new Category { categoryid = 4, categoryname = "Church" }
+                    new Category { CategoryID = 1, CategoryName = "Home" },
+                    new Category { CategoryID = 2, CategoryName = "School" },
+                    new Category { CategoryID = 3, CategoryName = "Work" },
+                    new Category { CategoryID = 4, CategoryName = "Church" }
                 );
 
 
