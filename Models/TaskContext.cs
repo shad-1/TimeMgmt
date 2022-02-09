@@ -33,7 +33,7 @@ namespace TimeMgmt.Models
                 new Task
                 {
                     TaskId = 1,
-                    task = "Project 1",
+                    TaskName = "Project 1",
                     DueDate = "2022-02-09",
                     Quadrant = 3,
                     Categoryid = 2,
@@ -42,7 +42,7 @@ namespace TimeMgmt.Models
                 new Task
                 {
                     TaskId = 2,
-                    task = "HBGary Analysis",
+                    TaskName = "HBGary Analysis",
                     DueDate = "2022-02-10",
                     Quadrant = 3,
                     Categoryid = 2,
@@ -51,7 +51,7 @@ namespace TimeMgmt.Models
                 new Task
                 {
                     TaskId = 3,
-                    task = "MLR",
+                    TaskName = "MLR",
                     DueDate = "2022-02-09",
                     Quadrant = 3,
                     Categoryid = 2,
