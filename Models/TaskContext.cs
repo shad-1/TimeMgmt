@@ -13,7 +13,7 @@ namespace TimeMgmt.Models
             //leave blank for now
         }
 
-        public DbSet<TaskContext> Tasks { get; set; }
+        public DbSet<TaskContext> Task { get; set; }
         public DbSet<Category> Categories { get; set; }
         //public string Categories { get; set; }
 
@@ -29,31 +29,31 @@ namespace TimeMgmt.Models
                 );
 
 
-            mb.Entity<Tasks>().HasData(
+            mb.Entity<Task>().HasData(
                 // pre-fill the database with movies
                 // P.S. If you haven't seen these, you should really make time for them
-                new Tasks
+                new Task
                 {
                     TaskId = 1,
-                    Task = "Project 1",
+                    task = "Project 1",
                     DueDate = "2022-02-09",
                     Quadrant = 3,
                     Categoryid = 2,
                     Completed = false
                 },
-                new Tasks
+                new Task
                 {
                     TaskId = 2,
-                    Task = "HBGary Analysis",
+                    task = "HBGary Analysis",
                     DueDate = "2022-02-10",
                     Quadrant = 3,
                     Categoryid = 2,
                     Completed = false
                 },
-                new Tasks
+                new Task
                 {
                     TaskId = 3,
-                    Task = "MLR",
+                    task = "MLR",
                     DueDate = "2022-02-09",
                     Quadrant = 3,
                     Categoryid = 2,

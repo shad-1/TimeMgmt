@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace TimeMgmt.Models
 {
-    public class Tasks
+    public class Task
     {
         [Key]
         public int TaskId { get; set; }
         [Required]
-        public string Task { get; set; }
+        public string task { get; set; }
         public string DueDate { get; set; }
         [Required]
         public int Quadrant { get; set; }
