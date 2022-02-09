@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TimeMgmt.Models;
+using Task = TimeMgmt.Models.Task;
 
 namespace TimeMgmt.Controllers
 {
@@ -31,7 +32,7 @@ namespace TimeMgmt.Controllers
         }
 
         //* ADD Task *//
-        public IActionREsunce AddTask()
+        public IActionResult AddTask()
         {
             return View();
         }
@@ -39,7 +40,7 @@ namespace TimeMgmt.Controllers
         [HttpPost]
         public IActionResult AddTask(Task task)
         {
-            return View();
+            return View(task);
         }
 
         //* EDIT Task *//
@@ -51,7 +52,7 @@ namespace TimeMgmt.Controllers
         [HttpPost]
         public IActionResult EditTask(Task task)
         {
-            return View();
+            return View(task);
         }
 
         //* DELETE Task *//
