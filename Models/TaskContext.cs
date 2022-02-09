@@ -30,8 +30,6 @@ namespace TimeMgmt.Models
 
 
             mb.Entity<Task>().HasData(
-                // pre-fill the database with movies
-                // P.S. If you haven't seen these, you should really make time for them
                 new Task
                 {
                     TaskId = 1,
