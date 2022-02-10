@@ -14,7 +14,7 @@ namespace TimeMgmt.Controllers
     public class HomeController : Controller
     {
 
-        private TaskContext _context;
+        private TaskContext _context { get; set; }
 
         public HomeController(TaskContext context)
         {
