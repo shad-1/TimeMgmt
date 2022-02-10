@@ -1,74 +1,90 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿
+
+@{
+    ViewData["Title"] = "My Tasks";
 }
-<div class="container text-center">
-    <div class="row">
-        <!--Row 1-->
-        <div class="col">
-            <h1>Stephen Covey's Time Management Matrix</h1>
-        </div>
-    </div>
-    <div class="container border">
-        <div class="row">
-            <!--Row 2-->
-            <div class="col-3 verticaltext_content"></div>
-            <div class="col border-left">
-                <h3>URGENT</h3>
-            </div>
-            <div class="col border-left">
-                <h3>NOT URGENT</h3>
-            </div>
-        </div>
-    </div>
 
-    <div class="container border">
-        <div class="row">
-            <!--Row 3-->
-            <div class="col-3 verticaltext_content">
-                <h3>IMPORTANT</h3>
-            </div>
-            <div class="col border-left">
-                <h4>Quadrant 1</h4>
-                <p>Here is a paragraph with cool stuff</p>
-                <p>Here is a paragraph with cool stuff</p>
-                <p>Here is a paragraph with cool stuff</p>
-                <p>Here is a paragraph with cool stuff</p>
+@model List<ToDo>
+
+<table class="table table-bordered table-striped">
 
 
-            </div>
-            <div class="col border-left">
-                <h4>Quadrant 2</h4>
-                <p>Here is a paragraph with cool stuff</p>
-                <p>Here is a paragraph with cool stuff</p>
-                <p>Here is a paragraph with cool stuff</p>
-                <p>Here is a paragraph with cool stuff</p>
+    <thead class="font-weight-bold">
+        <tr>
+            <td>Task</td>
+            <td>Due Date</td>
+            <td>Category</td>
+            <td>Completed</td>
+        </tr>
+    </thead>
 
-            </div>
-        </div>
-    </div>
+    <tbody>
+        @foreach (var x in Model)
+        {
 
-    <div class="container border">
-        <div class="row">
-            <!--Row 4-->
-            <div class="col-3 verticaltext_content">
-                <h4>NOT IMPORTANT</h4>
-            </div>
-            <div class="col col border-left">
-                <h4>Quadrant 3</h4>
-                <p>Here is a paragraph with cool stuff</p>
-                <p>Here is a paragraph with cool stuff</p>
-                <p>Here is a paragraph with cool stuff</p>
-                <p>Here is a paragraph with cool stuff</p>
-            </div>
-            <div class="col col border-left">
-                <h4>Quadrant 4</h4>
-                <p>Here is a paragraph with cool stuff</p>
-                <p>Here is a paragraph with cool stuff</p>
-                <p>Here is a paragraph with cool stuff</p>
-                <p>Here is a paragraph with cool stuff</p>
-            </div>
-        </div>
-    </div>
-</div>
+
+            @*@   switch (x.Quadrant) { }*@
+
+            @*<p>Quadrant 1</p>*@
+            if (x.Quadrant == 1)
+            {
+                <tr>
+                    <td>@x.TaskName</td>
+                    <td>@x.DueDate</td>
+                    <td>@x.Category.CategoryName</td>
+                    <td>@x.Completed</td>
+
+                    <td><a asp-controller="Home" asp-action="EditTask" asp-route-id="@x.TaskId">Edit</a></td>
+                    <td><a asp-controller="Home" asp-action="DeleteTask" asp-route-id="@x.TaskId">Delete</a></td>
+                </tr>
+            }
+
+            @*<p>Quadrant 2</p>*@
+            else if (x.Quadrant == 2)
+            {
+                <tr>
+                    <td>@x.TaskName</td>
+                    <td>@x.DueDate</td>
+                    <td>@x.Category.CategoryName</td>
+                    <td>@x.Completed</td>
+
+                    <td><a asp-controller="Home" asp-action="EditTask" asp-route-id="@x.TaskId">Edit</a></td>
+                    <td><a asp-controller="Home" asp-action="DeleteTask" asp-route-id="@x.TaskId">Delete</a></td>
+                </tr>
+            }
+
+            @*<p>Quadrant 3</p>*@
+            else if (x.Quadrant == 3)
+            {
+                <tr>
+                    <td>@x.TaskName</td>
+                    <td>@x.DueDate</td>
+                    <td>@x.Category.CategoryName</td>
+                    <td>@x.Completed</td>
+
+                    <td><a asp-controller="Home" asp-action="EditTask" asp-route-id="@x.TaskId">Edit</a></td>
+                    <td><a asp-controller="Home" asp-action="DeleteTask" asp-route-id="@x.TaskId">Delete</a></td>
+                </tr>
+            }
+
+            @*<p>Quadrant 4</p>*@
+            else
+            {
+                <tr>
+                    <td>@x.TaskName</td>
+                    <td>@x.DueDate</td>
+                    <td>@x.Category.CategoryName</td>
+                    <td>@x.Completed</td>
+
+                    <td><a asp-controller="Home" asp-action="EditTask" asp-route-id="@x.TaskId">Edit</a></td>
+                    <td><a asp-controller="Home" asp-action="DeleteTask" asp-route-id="@x.TaskId">Delete</a></td>
+                </tr>
+            }
+
+        }
+
+    </tbody>
+
+</table>
 
 

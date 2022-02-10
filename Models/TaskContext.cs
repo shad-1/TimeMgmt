@@ -13,7 +13,7 @@ namespace TimeMgmt.Models
             //leave blank for now
         }
 
-        public DbSet<TaskContext> Task { get; set; }
+        public DbSet<ToDo> ToDos { get; set; }
         public DbSet<Category> Categories { get; set; }
         //public string Categories { get; set; }
 
@@ -29,8 +29,8 @@ namespace TimeMgmt.Models
                 );
 
 
-            mb.Entity<Task>().HasData(
-                new Task
+            mb.Entity<ToDo>().HasData(
+                new ToDo
                 {
                     TaskId = 1,
                     TaskName = "Project 1",
@@ -39,7 +39,7 @@ namespace TimeMgmt.Models
                     Categoryid = 2,
                     Completed = false
                 },
-                new Task
+                new ToDo
                 {
                     TaskId = 2,
                     TaskName = "HBGary Analysis",
@@ -48,7 +48,7 @@ namespace TimeMgmt.Models
                     Categoryid = 2,
                     Completed = false
                 },
-                new Task
+                new ToDo
                 {
                     TaskId = 3,
                     TaskName = "MLR",

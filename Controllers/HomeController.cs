@@ -4,9 +4,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using TimeMgmt.Models;
-using Task = TimeMgmt.Models.Task;
+using ToDo = TimeMgmt.Models.ToDo;
 
 namespace TimeMgmt.Controllers
 {
@@ -22,8 +23,10 @@ namespace TimeMgmt.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var Task = _context.ToDos.Include(x => x.Category).ToList();
+            return View(Task);
         }
+
 
         //* Quadrants View *//
         public IActionResult Quadrants()
@@ -38,7 +41,7 @@ namespace TimeMgmt.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddTask(Task task)
+        public IActionResult AddTask(ToDo task)
         {
             return View(task);
         }
@@ -50,7 +53,7 @@ namespace TimeMgmt.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditTask(Task task)
+        public IActionResult EditTask(ToDo task)
         {
             return View(task);
         }
@@ -62,7 +65,7 @@ namespace TimeMgmt.Controllers
         }
 
         [HttpPost]
-        public IActionResult DeleteTask(Task task)
+        public IActionResult DeleteTask(ToDo task)
         {
             return View();
         }

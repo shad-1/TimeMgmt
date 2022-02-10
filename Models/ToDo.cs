@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TimeMgmt.Models
 {
-    public class Task
+    public class ToDo
     {
         [Key]
         public int TaskId { get; set; }
