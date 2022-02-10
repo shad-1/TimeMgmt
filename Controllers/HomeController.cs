@@ -70,8 +70,8 @@ namespace TimeMgmt.Controllers
         public IActionResult EditTask(int id)
         {
             ViewBag.Cat = _context.Categories.ToList();
-
-            return View("AddTask");
+            var ent = _context.ToDos.Single(x => x.TaskId == id);
+            return View(ent);
         }
 
         [HttpPost]
