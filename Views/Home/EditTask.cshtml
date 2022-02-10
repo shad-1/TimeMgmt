@@ -35,11 +35,10 @@
                     <option value="@mkList.CategoryID ">@mkList.CategoryName</option>
                 }
             </select>
-            <label asp-for="Completed">Completed</label>
-            <select>
-                <option value="false">No</option>
-                <option value="true">Yes</option>
-            </select>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" asp-for="Completed">
+                <label class="form-check-label" asp-for="Completed">Completed</label>
+            </div>
             <input type="hidden" asp-for="TaskId" />
         </div>
         <button type="submit">Submit</button>

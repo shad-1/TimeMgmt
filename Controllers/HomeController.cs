@@ -23,7 +23,8 @@ namespace TimeMgmt.Controllers
 
         public IActionResult Index()
         {
-            var Task = _context.ToDos.Include(x => x.Category).ToList();
+            //Get a list of todo's then filter them based on their completion status
+            var Task = _context.ToDos.Include(x => x.Category).ToList().FindAll(t => t.Completed == false);
             return View(Task);
         }
 
