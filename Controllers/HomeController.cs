@@ -47,35 +47,41 @@ namespace TimeMgmt.Controllers
         }
 
         //* EDIT Task *//
+        [HttpGet]
         public IActionResult EditTask(int id)
         {
             ViewBag.Categories = _context.Categories.ToList(); //allows for movie categories to be used
-        //    var form = TimeMgmt.Responses.Single(x => x.id == id);
+            //var form = TimeMgmt.Responses.Single(x => x.id == id);  
+            var form = _context.ToDos.Single(x => x.TaskId == id);
             //identifies which record is being edited
-            return View("AddTask"); //returns editable information  //ADD FORM BACK(!)
+            return View("AddTask", form); //returns editable information  //ADD FORM BACK(!)
         }
 
         [HttpPost]
         public IActionResult EditTask(ToDo task)
         {
-            _context.Update(task); //updates the task
+            _context.ToDos.Update(task); //updates the task
             _context.SaveChanges(); //saves changes
             return RedirectToAction("Index"); //redirects to the table
         }
 
         //* DELETE Task *//
+        [HttpGet]
         public IActionResult DeleteTask(int id)
         {
             //var form = TimeMgmt.Responses.Single(x => x.id == id);  
+            var form = _context.ToDos.Single(x => x.TaskId == id);  
             //identifies which record is being deleted
-            return View(); //ADD FORM BACK HERE TOO
+            return View(form); //ADD FORM BACK HERE TOO
         }
 
         [HttpPost]
         public IActionResult DeleteTask(ToDo task)
         {
-               // TaskMgmt.Responses.Remove(task); //removes the record 
-               // TaskMgmt.SaveChanges();//saves the changes
+                // TaskMgmt.Responses.Remove(task); //removes the record 
+                // TaskMgmt.SaveChanges();//saves the changes
+                _context.ToDos.Remove(task);
+                _context.SaveChanges();
                 return RedirectToAction("Index"); //redirects to view movies table
             }
         }
