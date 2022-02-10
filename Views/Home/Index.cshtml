@@ -26,7 +26,11 @@
             @*@   switch (x.Quadrant) { }*@
 
             @*<p>Quadrant 1</p>*@
-            if (x.Quadrant == 1)
+            if (x.Completed == true)
+                {
+                    ;
+                }
+            else if (x.Quadrant == 1)
             {
                 <tr>
                     <td>@x.TaskName</td>
