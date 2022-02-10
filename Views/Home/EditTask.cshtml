@@ -14,15 +14,15 @@
             <label asp-for="DueDate">Due date:</label>
             <input asp-for="DueDate" /><p class="small font-weight-light">(enter in format mm/dd/yyy)</p>
             <label asp-for="Quadrant">*Quadrant*</label>
-            <select>
+            <select asp-for="Quadrant">
                 <option value="" class="font-weight-light">Choose Classification</option>
                 <option value="1">Urgent & Important</option>
                 <option value="2">Not Urgent & Important</option>
                 <option value="3">Urgent & Not Important</option>
                 <option value="4"> Not Urgent & Not Important</option>
             </select><br />
-            <label>Category</label>
-            <select>
+            <label asp-for="Category">Category</label>
+            <select asp-for="Category">
                 <option class="font-weight-light">Select a Category</option>
 
                 @foreach (Category mkList in ViewBag.Cat)
