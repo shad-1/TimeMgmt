@@ -12,9 +12,9 @@
             <label asp-for="TaskName">*Task*:</label>
             <input asp-for="TaskName" autofocus /><br />
             <label asp-for="DueDate">Due date:</label>
-            <input asp-for="DueDate" /><p class="small font-weight-light">(enter in format mm/dd/yyy)</p>
+            <input asp-for="DueDate" /><p class="small font-weight-light">(enter in format mm/dd/yyyy)</p>
             <label asp-for="Quadrant">*Quadrant*</label>
-            <select>
+            <select asp-for="Quadrant">
                 <option value="" class="font-weight-light">Choose Classification</option>
                 <option value="1">Urgent & Important</option>
                 <option value="2">Not Urgent & Important</option>
@@ -22,13 +22,13 @@
                 <option value="4"> Not Urgent & Not Important</option>
             </select><br />
             <label>Category</label>
-            <select>
+            <select asp-for="Categoryid">
                 <option class="font-weight-light">Select a Category</option>
                 
-@*                @foreach (Category mkList in ViewBag.Cat)
+                @foreach (Category mkList in ViewBag.Cat)
                 {
                     <option value="@mkList.CategoryID ">@mkList.CategoryName</option>
-                }*@
+                }
             </select>
             <input asp-for="Completed" type="hidden" value="False" />
         </div>

@@ -8,6 +8,7 @@ namespace TimeMgmt.Models
 {
     public class ToDo
     {
+        [Required]
         [Key]
         public int TaskId { get; set; }
         [Required]

@@ -37,22 +37,40 @@ namespace TimeMgmt.Controllers
         //* ADD Task *//
         public IActionResult AddTask()
         {
+            ViewBag.Cat = _context.Categories.ToList();
+
             return View();
         }
 
         [HttpPost]
         public IActionResult AddTask(ToDo task)
         {
-            return View(task);
+            if (ModelState.IsValid)
+            {
+                //Add the category object for a given categoryID
+                if (task.Category == null)
+                    task.Category = _context.Categories.Single(c => c.CategoryID == task.Categoryid);
+
+                _context.Add(task);
+                _context.SaveChanges();
+
+                //Redirect to movies view
+                return RedirectToAction("Index");
+            }
+            //If invalid, return the form.
+            else
+            {
+                ViewBag.Cat = _context.Categories.ToList<Category>();
+                return View(task);
+            }
         }
 
         //* EDIT Task *//
         public IActionResult EditTask(int id)
         {
-            ViewBag.Categories = _context.Categories.ToList(); //allows for movie categories to be used
-        //    var form = TimeMgmt.Responses.Single(x => x.id == id);
-            //identifies which record is being edited
-            return View("AddTask"); //returns editable information  //ADD FORM BACK(!)
+            ViewBag.Cat = _context.Categories.ToList();
+
+            return View("AddTask");
         }
 
         [HttpPost]
