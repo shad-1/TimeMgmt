@@ -78,6 +78,8 @@ namespace TimeMgmt.Controllers
         [HttpPost]
         public IActionResult EditTask(ToDo task)
         {
+            if (task.Category == null)
+                task.Category = _context.Categories.Single(c => c.CategoryID == task.Categoryid);
             _context.ToDos.Update(task); //updates the task
             _context.SaveChanges(); //saves changes
             return RedirectToAction("Index"); //redirects to the table

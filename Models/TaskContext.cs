@@ -12,7 +12,7 @@ namespace TimeMgmt.Models
         {
             //leave blank for now
         }
-
+        
         public DbSet<ToDo> ToDos { get; set; }
         public DbSet<Category> Categories { get; set; }
         //public string Categories { get; set; }
