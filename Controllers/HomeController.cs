@@ -14,7 +14,7 @@ namespace TimeMgmt.Controllers
     public class HomeController : Controller
     {
 
-        private TaskContext _context;
+        private TaskContext _context { get; set; }
 
         public HomeController(TaskContext context)
         {
@@ -37,45 +37,68 @@ namespace TimeMgmt.Controllers
         //* ADD Task *//
         public IActionResult AddTask()
         {
+            ViewBag.Cat = _context.Categories.ToList();
+
             return View();
         }
 
         [HttpPost]
         public IActionResult AddTask(ToDo task)
         {
-            return View(task);
+            if (ModelState.IsValid)
+            {
+                //Add the category object for a given categoryID
+                if (task.Category == null)
+                    task.Category = _context.Categories.Single(c => c.CategoryID == task.Categoryid);
+
+                _context.Add(task);
+                _context.SaveChanges();
+
+                //Redirect to movies view
+                return RedirectToAction("Index");
+            }
+            //If invalid, return the form.
+            else
+            {
+                ViewBag.Cat = _context.Categories.ToList<Category>();
+                return View(task);
+            }
         }
 
         //* EDIT Task *//
+        [HttpGet]
         public IActionResult EditTask(int id)
         {
-            ViewBag.Categories = _context.Categories.ToList(); //allows for movie categories to be used
-        //    var form = TimeMgmt.Responses.Single(x => x.id == id);
-            //identifies which record is being edited
-            return View("AddTask"); //returns editable information  //ADD FORM BACK(!)
+            ViewBag.Cat = _context.Categories.ToList();
+
+            return View("AddTask");
         }
 
         [HttpPost]
         public IActionResult EditTask(ToDo task)
         {
-            _context.Update(task); //updates the task
+            _context.ToDos.Update(task); //updates the task
             _context.SaveChanges(); //saves changes
             return RedirectToAction("Index"); //redirects to the table
         }
 
         //* DELETE Task *//
+        [HttpGet]
         public IActionResult DeleteTask(int id)
         {
             //var form = TimeMgmt.Responses.Single(x => x.id == id);  
+            var form = _context.ToDos.Single(x => x.TaskId == id);  
             //identifies which record is being deleted
-            return View(); //ADD FORM BACK HERE TOO
+            return View(form); //ADD FORM BACK HERE TOO
         }
 
         [HttpPost]
         public IActionResult DeleteTask(ToDo task)
         {
-               // TaskMgmt.Responses.Remove(task); //removes the record 
-               // TaskMgmt.SaveChanges();//saves the changes
+                // TaskMgmt.Responses.Remove(task); //removes the record 
+                // TaskMgmt.SaveChanges();//saves the changes
+                _context.ToDos.Remove(task);
+                _context.SaveChanges();
                 return RedirectToAction("Index"); //redirects to view movies table
             }
         }
