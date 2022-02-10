@@ -26,6 +26,11 @@
                 <option class="font-weight-light">Select a Category</option>
 
                 @foreach (Category mkList in ViewBag.Cat)
+                    if (mkList.CategoryID == ViewBag.CatID)
+                {
+                    <option selected value="@mkList.CategoryID ">@mkList.CategoryName</option>
+                }
+                    else
                 {
                     <option value="@mkList.CategoryID ">@mkList.CategoryName</option>
                 }
