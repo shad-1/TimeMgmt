@@ -1,0 +1,13 @@
+﻿
+@model TimeMgmt.Models.Task
+@{
+    ViewData["Title"] = "Delete Task?"; <!--Title for this web page-->
+}
+
+<h2>Are you sure you want to delete this task?</h2> <!--Asks for confirmation-->
+
+<form method="post" asp-controller="Home" asp-action="Delete">
+    <!--Connects to delete action-->
+    <button type="submit" class="btn">Delete</button> <!--Delete button-->
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Cancel</a> <!--Cancel button-->
+</form>
