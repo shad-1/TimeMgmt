@@ -49,26 +49,36 @@ namespace TimeMgmt.Controllers
         //* EDIT Task *//
         public IActionResult EditTask(int id)
         {
-            return View();
+            ViewBag.Categories = _context.Categories.ToList(); //allows for movie categories to be used
+        //    var form = TimeMgmt.Responses.Single(x => x.id == id);
+            //identifies which record is being edited
+            return View("AddTask"); //returns editable information  //ADD FORM BACK(!)
         }
 
         [HttpPost]
         public IActionResult EditTask(ToDo task)
         {
-            return View(task);
+            _context.Update(task); //updates the task
+            _context.SaveChanges(); //saves changes
+            return RedirectToAction("Index"); //redirects to the table
         }
 
         //* DELETE Task *//
         public IActionResult DeleteTask(int id)
         {
-            return View();
+            //var form = TimeMgmt.Responses.Single(x => x.id == id);  
+            //identifies which record is being deleted
+            return View(); //ADD FORM BACK HERE TOO
         }
 
         [HttpPost]
         public IActionResult DeleteTask(ToDo task)
         {
-            return View();
+               // TaskMgmt.Responses.Remove(task); //removes the record 
+               // TaskMgmt.SaveChanges();//saves the changes
+                return RedirectToAction("Index"); //redirects to view movies table
+            }
         }
     }
-}
+
 
