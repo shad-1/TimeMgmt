@@ -25,10 +25,10 @@
             <select>
                 <option class="font-weight-light">Select a Category</option>
                 
-                @foreach (Category mkList in ViewBag.Cat)
+@*                @foreach (Category mkList in ViewBag.Cat)
                 {
                     <option value="@mkList.CategoryID ">@mkList.CategoryName</option>
-                }
+                }*@
             </select>
             <input asp-for="Completed" type="hidden" value="False" />
         </div>
