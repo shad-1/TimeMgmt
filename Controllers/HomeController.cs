@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TimeMgmt.Models;
+using Task = TimeMgmt.Models.Task;
 
 namespace TimeMgmt.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private TaskContext _context;
+
+        public HomeController(TaskContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -23,15 +25,46 @@ namespace TimeMgmt.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        //* Quadrants View *//
+        public IActionResult Quadrants()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        //* ADD Task *//
+        public IActionResult AddTask()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddTask(Task task)
+        {
+            return View(task);
+        }
+
+        //* EDIT Task *//
+        public IActionResult EditTask(int id)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult EditTask(Task task)
+        {
+            return View(task);
+        }
+
+        //* DELETE Task *//
+        public IActionResult DeleteTask(int id)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult DeleteTask(Task task)
+        {
+            return View();
         }
     }
 }
