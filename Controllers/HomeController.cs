@@ -71,6 +71,7 @@ namespace TimeMgmt.Controllers
         {
             ViewBag.Cat = _context.Categories.ToList();
             var ent = _context.ToDos.Single(x => x.TaskId == id);
+            ViewBag.CatID = ent.Categoryid;
             return View(ent);
         }
 
