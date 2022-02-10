@@ -73,8 +73,9 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-image: linear-gradient(silver, white, grey);
 }
 .footer {
   position: absolute;
@@ -83,4 +84,3 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
-
